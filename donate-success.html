@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Hope Beyond Borders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a3b6b 0%, #2b7a4b 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            max-width: 600px;
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .checkmark {
+            font-size: 80px;
+            animation: bounce 1s ease infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        h1 {
+            color: #1a3b6b;
+            margin: 20px 0 10px;
+            font-size: 32px;
+        }
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .highlight {
+            color: #2b7a4b;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: #f5b41a;
+            color: #1a3b6b;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #e0a010;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(245, 180, 26, 0.4);
+        }
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: #f5b41a;
+            margin: 20px auto;
+        }
+        .footer-text {
+            font-size: 14px;
+            color: #999;
+            margin-top: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a3b6b;
+        }
+        .logo span {
+            color: #f5b41a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkmark">✅</div>
+        <h1>Thank You for Your Donation!</h1>
+        <div class="divider"></div>
+        <p>Your generous support helps us transform lives across Southern Africa.</p>
+        <p class="highlight">Hope Beyond Borders Foundation</p>
+        <p style="font-size: 14px; color: #666;">
+            Restoring Hope. Empowering Communities. Transforming Futures.
+        </p>
+        <a href="index.html" class="btn">🏠 Return to Home</a>
+        <p class="footer-text">
+            <i class="fa fa-heart" style="color: #f5b41a;"></i> 
+            Your donation makes a difference
+        </p>
+    </div>
+</body>
+</html>
