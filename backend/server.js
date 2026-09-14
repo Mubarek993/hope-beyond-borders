@@ -1,66 +1,69 @@
-require("dotenv").config(); // ✅ ADD THIS LINE AT THE VERY TOP
+// Paystack Backend for Hope Beyond Borders Foundation
+require("dotenv").config();
 const express = require("express");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const axios = require("axios");
 const cors = require("cors");
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-console.log("🚀 Stripe backend starting...");
+const PAYSTACK_SECRET_KEY = process.env.PAYSTACK_SECRET_KEY;
+
+console.log("🚀 Paystack backend starting...");
 
 // Test endpoint
 app.get("/", (req, res) => {
-  res.json({ status: "✅ Stripe backend is running!" });
+  res.json({ status: "✅ Paystack backend is running!" });
 });
 
-// Create Stripe Checkout Session
-app.post("/create-checkout-session", async (req, res) => {
+// Initialize Paystack Payment
+app.post("/initialize-payment", async (req, res) => {
   try {
     const { amount, name, email, phone } = req.body;
 
     console.log("📥 Received donation:", { amount, name, email, phone });
 
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
-      line_items: [
-        {
-          price_data: {
-            currency: "zar",
-            product_data: {
-              name: "Hope Beyond Borders Foundation Donation",
-              description:
-                "Supporting education, healthcare, and technology in Southern Africa",
-            },
-            unit_amount: amount * 100,
-          },
-          quantity: 1,
+    const response = await axios.post(
+      "https://api.paystack.co/transaction/initialize",
+      {
+        email: email,
+        amount: amount * 100, // Convert Rands to cents
+        currency: "ZAR",
+        metadata: {
+          donor_name: name,
+          donor_phone: phone,
         },
-      ],
-      mode: "payment",
-      success_url:
-        "https://mubarek993.github.io/hope-beyond-borders/donate-success.html",
-      cancel_url:
-        "https://mubarek993.github.io/hope-beyond-borders/donate.html",
-      customer_email: email,
-      metadata: {
-        donor_name: name,
-        donor_phone: phone,
+        callback_url:
+          "https://mubarek993.github.io/hope-beyond-borders/donate-success.html",
       },
-    });
+      {
+        headers: {
+          Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`,
+          "Content-Type": "application/json",
+        },
+      },
+    );
 
-    console.log("✅ Session created:", session.id);
-    res.json({ sessionId: session.id });
+    console.log("✅ Payment initialized:", response.data.data.reference);
+    res.json({
+      authorization_url: response.data.data.authorization_url,
+      access_code: response.data.data.access_code,
+      reference: response.data.data.reference,
+    });
   } catch (error) {
-    console.error("❌ Error:", error.message);
-    res.status(500).json({ error: error.message });
+    console.error(
+      "❌ Paystack Error:",
+      error.response?.data?.message || error.message,
+    );
+    res.status(500).json({
+      error: error.response?.data?.message || error.message,
+    });
   }
 });
 
 app.listen(3000, () => {
-  console.log("🚀 Server running on http://localhost:3000");
+  console.log("🚀 Paystack backend running on http://localhost:3000");
   console.log("📌 Test endpoint: http://localhost:3000/");
-  console.log(
-    "📌 Create session: POST http://localhost:3000/create-checkout-session",
-  );
+  console.log("📌 Initialize: POST http://localhost:3000/initialize-payment");
 });

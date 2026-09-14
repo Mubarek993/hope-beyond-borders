@@ -23,9 +23,6 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
 
-        <!-- Stripe JS -->
-        <script src="https://js.stripe.com/v3/"></script>
-
         <style>
             /* =============================================
                DONATE SECTION - IMPROVED READABILITY
@@ -77,7 +74,6 @@
                 letter-spacing: 1px;
             }
 
-            /* ✅ BLACK text for bank details values */
             .bank-details p {
                 font-size: 17px;
                 color: #000000 !important;
@@ -86,7 +82,6 @@
                 font-weight: 600;
             }
 
-            /* ✅ BLACK text for bank details labels */
             .bank-details p strong {
                 color: #000000 !important;
                 font-weight: 800;
@@ -202,9 +197,6 @@
                 font-size: 16px;
             }
 
-            /* =============================================
-               FORCE BLACK TEXT EVERYWHERE IN DONATE SECTION
-               ============================================= */
             .donate * {
                 color: #000000;
             }
@@ -224,9 +216,6 @@
                 color: #000000 !important;
             }
 
-            /* =============================================
-               RESPONSIVE
-               ============================================= */
             @media (max-width: 768px) {
                 .donate-content .section-header h2 {
                     font-size: 28px;
@@ -389,7 +378,7 @@
                                     </button>
                                 </div>
                                 <p class="secure-badge">
-                                    <i class="fa fa-lock"></i> Secure payments via Stripe
+                                    <i class="fa fa-lock"></i> Secure payments via Paystack
                                 </p>
                             </form>
                         </div>
@@ -490,11 +479,8 @@
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
 
-        <!-- Stripe Donation Handler -->
+        <!-- Paystack Donation Handler -->
         <script>
-            // Stripe Publishable Key
-            const stripe = Stripe('pk_test_51TdtlWASH9g2dCzuBgU9mp83X1xSKmv3fGOj1ycvZgSH0UT4r2VMgZ99ghmSGAq3XML9jkPWtuHcPPSpMGnexWjG00mU95isQQ');
-            
             document.getElementById('donation-form').addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
@@ -515,7 +501,7 @@
                 btn.disabled = true;
                 
                 try {
-                    const response = await fetch('http://localhost:3000/create-checkout-session', {
+                    const response = await fetch('http://localhost:3000/initialize-payment', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -534,13 +520,8 @@
                         throw new Error(data.error);
                     }
                     
-                    const result = await stripe.redirectToCheckout({
-                        sessionId: data.sessionId
-                    });
-                    
-                    if (result.error) {
-                        throw new Error(result.error.message);
-                    }
+                    // Redirect to Paystack Checkout
+                    window.location.href = data.authorization_url;
                     
                 } catch (error) {
                     alert('Error: ' + error.message + '\n\nPlease try again or use bank transfer.');
