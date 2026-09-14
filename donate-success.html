@@ -562,6 +562,41 @@
 
     <!-- Paystack Donation Handler -->
     <script>
+      // =============================================
+      // 🔗 BACKEND URL
+      // =============================================
+      const BACKEND_URL = "https://hope-beyond-borders-backend.onrender.com";
+
+      // =============================================
+      // 🔥 WAKE UP BACKEND (Render cold start fix)
+      // =============================================
+      async function warmUpBackend() {
+        console.log("🔥 Waking up backend...");
+        try {
+          await fetch(BACKEND_URL + "/", { method: "GET" });
+          console.log("✅ Backend is awake!");
+        } catch (err) {
+          console.log("⚠️ Backend still warming up...");
+        }
+      }
+
+      // Wake up immediately when page loads
+      warmUpBackend();
+
+      // Also warm up when user starts filling the form
+      document
+        .getElementById("full-name")
+        .addEventListener("focus", warmUpBackend, { once: true });
+      document
+        .getElementById("email")
+        .addEventListener("focus", warmUpBackend, { once: true });
+      document
+        .getElementById("phone")
+        .addEventListener("focus", warmUpBackend, { once: true });
+
+      // =============================================
+      // 💳 DONATION FORM HANDLER
+      // =============================================
       document
         .getElementById("donation-form")
         .addEventListener("submit", async function (e) {
@@ -582,25 +617,25 @@
           }
 
           const btn = document.getElementById("donate-btn");
-          btn.innerHTML = "Processing...";
+          btn.innerHTML = "⏳ Processing... (up to 30s)";
           btn.disabled = true;
 
           try {
-            const response = await fetch(
-              "https://hope-beyond-borders-backend.onrender.com/initialize-payment",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  amount: amountValue,
-                  name: name,
-                  email: email,
-                  phone: phone,
-                }),
+            // Wake up backend again just in case
+            await warmUpBackend();
+
+            const response = await fetch(BACKEND_URL + "/initialize-payment", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
               },
-            );
+              body: JSON.stringify({
+                amount: amountValue,
+                name: name,
+                email: email,
+                phone: phone,
+              }),
+            });
 
             const data = await response.json();
 
@@ -611,12 +646,21 @@
             // Redirect to Paystack Checkout
             window.location.href = data.authorization_url;
           } catch (error) {
-            alert(
-              "Error: " +
-                error.message +
-                "\n\nPlease try again or use bank transfer.",
-            );
-            btn.innerHTML = "Donate Now";
+            console.error("Donation error:", error);
+
+            // Friendlier message for cold start
+            let msg = error.message;
+            if (
+              msg.includes("Failed to fetch") ||
+              msg.includes("NetworkError") ||
+              msg.includes("Load failed")
+            ) {
+              msg =
+                "The payment server is waking up. Please wait 30 seconds and try again, or use the bank transfer details on the left.";
+            }
+
+            alert(msg);
+            btn.innerHTML = "❤️ Donate Now";
             btn.disabled = false;
           }
         });
