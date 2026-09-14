@@ -7,252 +7,58 @@
         <meta content="Charity Nonprofit Hope Beyond Borders Southern Africa" name="keywords">
         <meta content="Hope Beyond Borders Foundation - Restoring Hope. Empowering Communities. Transforming Futures across Southern Africa." name="description">
 
-        <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
-
-        <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        
-        <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
 
         <style>
-            /* =============================================
-               DONATE SECTION - IMPROVED READABILITY
-               ============================================= */
-            
-            .donate-content .section-header p {
-                font-size: 18px;
-                font-weight: 700;
-                color: #f5b41a;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                margin-bottom: 8px;
-            }
-
-            .donate-content .section-header h2 {
-                font-size: 38px;
-                font-weight: 800;
-                color: #1a3b6b;
-                line-height: 1.2;
-                margin-bottom: 25px;
-            }
-
-            .donate-text p {
-                font-size: 17px;
-                line-height: 1.9;
-                color: #000000;
-                margin-bottom: 18px;
-                font-weight: 500;
-            }
-
-            /* =============================================
-               BANK TRANSFER DETAILS - BLACK TEXT
-               ============================================= */
-            .bank-details {
-                background: #f8f9fa;
-                padding: 30px;
-                border-radius: 12px;
-                border-left: 6px solid #f5b41a;
-                margin-top: 25px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            }
-
-            .bank-details h4 {
-                font-size: 22px;
-                font-weight: 800;
-                color: #000000;
-                margin-bottom: 20px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-            }
-
-            .bank-details p {
-                font-size: 17px;
-                color: #000000 !important;
-                margin-bottom: 12px;
-                line-height: 1.8;
-                font-weight: 600;
-            }
-
-            .bank-details p strong {
-                color: #000000 !important;
-                font-weight: 800;
-                font-size: 17px;
-                min-width: 160px;
-                display: inline-block;
-            }
-
-            /* =============================================
-               CONTACT QUERY - BLACK TEXT
-               ============================================= */
-            .query-contact {
-                margin-top: 20px;
-                font-size: 16px;
-                color: #000000 !important;
-                padding: 15px 20px;
-                background: #fff8e1;
-                border-radius: 8px;
-                border-left: 4px solid #f5b41a;
-                font-weight: 700;
-            }
-
-            .query-contact i {
-                color: #f5b41a;
-                margin-right: 10px;
-                font-size: 18px;
-            }
-
-            .query-contact strong {
-                color: #000000 !important;
-                font-weight: 800;
-                font-size: 17px;
-            }
-
-            /* =============================================
-               DONATE FORM - IMPROVED READABILITY
-               ============================================= */
-            .donate-form .form-control {
-                border-radius: 8px;
-                border: 2px solid #d0d0d0;
-                padding: 14px 18px;
-                font-size: 16px;
-                color: #000000 !important;
-                font-weight: 500;
-                transition: all 0.3s ease;
-                background: #ffffff;
-            }
-
-            .donate-form .form-control:focus {
-                border-color: #f5b41a;
-                box-shadow: 0 0 0 3px rgba(245, 180, 26, 0.2);
-            }
-
-            .donate-form .form-control::placeholder {
-                color: #888888 !important;
-            }
-
-            .donate-form .btn-group .btn-custom {
-                font-size: 17px;
-                font-weight: 700;
-                padding: 14px 22px;
-                border-radius: 8px;
-                border: 2px solid #d0d0d0;
-                background: #ffffff;
-                color: #000000 !important;
-                transition: all 0.3s ease;
-            }
-
-            .donate-form .btn-group .btn-custom.active {
-                background: #f5b41a;
-                border-color: #f5b41a;
-                color: #000000 !important;
-                font-weight: 800;
-            }
-
-            .donate-form .btn-group .btn-custom:hover:not(.active) {
-                border-color: #f5b41a;
-                background: #fff8e1;
-            }
-
-            .donate-form .btn-custom[type="submit"] {
-                font-size: 20px;
-                font-weight: 800;
-                padding: 18px 45px;
-                border-radius: 50px;
-                background: #f5b41a;
-                color: #000000 !important;
-                border: none;
-                width: 100%;
-                transition: all 0.3s ease;
-                box-shadow: 0 6px 20px rgba(245, 180, 26, 0.4);
-                text-transform: uppercase;
-                letter-spacing: 1px;
-            }
-
-            .donate-form .btn-custom[type="submit"]:hover {
-                background: #e0a010;
-                transform: translateY(-3px);
-                box-shadow: 0 8px 30px rgba(245, 180, 26, 0.5);
-            }
-
-            .secure-badge {
-                margin-top: 18px;
-                font-size: 15px;
-                color: #000000 !important;
-                text-align: center;
-                font-weight: 600;
-            }
-
-            .secure-badge i {
-                color: #2b7a4b;
-                margin-right: 6px;
-                font-size: 16px;
-            }
-
-            .donate * {
-                color: #000000;
-            }
-
-            .donate h2 {
-                color: #1a3b6b !important;
-            }
-
-            .donate h4 {
-                color: #000000 !important;
-            }
-
-            .donate .bank-details p,
-            .donate .bank-details strong,
-            .donate .query-contact,
-            .donate .query-contact strong {
-                color: #000000 !important;
-            }
-
+            .donate-content .section-header p { font-size: 18px; font-weight: 700; color: #f5b41a; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+            .donate-content .section-header h2 { font-size: 38px; font-weight: 800; color: #1a3b6b; line-height: 1.2; margin-bottom: 25px; }
+            .donate-text p { font-size: 17px; line-height: 1.9; color: #000000; margin-bottom: 18px; font-weight: 500; }
+            .bank-details { background: #f8f9fa; padding: 30px; border-radius: 12px; border-left: 6px solid #f5b41a; margin-top: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+            .bank-details h4 { font-size: 22px; font-weight: 800; color: #000000; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+            .bank-details p { font-size: 17px; color: #000000 !important; margin-bottom: 12px; line-height: 1.8; font-weight: 600; }
+            .bank-details p strong { color: #000000 !important; font-weight: 800; font-size: 17px; min-width: 160px; display: inline-block; }
+            .query-contact { margin-top: 20px; font-size: 16px; color: #000000 !important; padding: 15px 20px; background: #fff8e1; border-radius: 8px; border-left: 4px solid #f5b41a; font-weight: 700; }
+            .query-contact i { color: #f5b41a; margin-right: 10px; font-size: 18px; }
+            .query-contact strong { color: #000000 !important; font-weight: 800; font-size: 17px; }
+            .donate-form .form-control { border-radius: 8px; border: 2px solid #d0d0d0; padding: 14px 18px; font-size: 16px; color: #000000 !important; font-weight: 500; transition: all 0.3s ease; background: #ffffff; }
+            .donate-form .form-control:focus { border-color: #f5b41a; box-shadow: 0 0 0 3px rgba(245, 180, 26, 0.2); }
+            .donate-form .form-control::placeholder { color: #888888 !important; }
+            .donate-form .btn-group .btn-custom { font-size: 17px; font-weight: 700; padding: 14px 22px; border-radius: 8px; border: 2px solid #d0d0d0; background: #ffffff; color: #000000 !important; transition: all 0.3s ease; }
+            .donate-form .btn-group .btn-custom.active { background: #f5b41a; border-color: #f5b41a; color: #000000 !important; font-weight: 800; }
+            .donate-form .btn-group .btn-custom:hover:not(.active) { border-color: #f5b41a; background: #fff8e1; }
+            .donate-form .btn-custom[type="submit"] { font-size: 20px; font-weight: 800; padding: 18px 45px; border-radius: 50px; background: #f5b41a; color: #000000 !important; border: none; width: 100%; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(245, 180, 26, 0.4); text-transform: uppercase; letter-spacing: 1px; }
+            .donate-form .btn-custom[type="submit"]:hover { background: #e0a010; transform: translateY(-3px); box-shadow: 0 8px 30px rgba(245, 180, 26, 0.5); }
+            .secure-badge { margin-top: 18px; font-size: 15px; color: #000000 !important; text-align: center; font-weight: 600; }
+            .secure-badge i { color: #2b7a4b; margin-right: 6px; font-size: 16px; }
+            .donate * { color: #000000; }
+            .donate h2 { color: #1a3b6b !important; }
+            .donate h4 { color: #000000 !important; }
+            .donate .bank-details p, .donate .bank-details strong, .donate .query-contact, .donate .query-contact strong { color: #000000 !important; }
             @media (max-width: 768px) {
-                .donate-content .section-header h2 {
-                    font-size: 28px;
-                }
-                .donate-form .btn-group .btn-custom {
-                    font-size: 15px;
-                    padding: 12px 16px;
-                }
-                .bank-details {
-                    padding: 20px;
-                }
-                .bank-details p strong {
-                    min-width: 120px;
-                    font-size: 15px;
-                }
-                .bank-details p {
-                    font-size: 15px;
-                }
+                .donate-content .section-header h2 { font-size: 28px; }
+                .donate-form .btn-group .btn-custom { font-size: 15px; padding: 12px 16px; }
+                .bank-details { padding: 20px; }
+                .bank-details p strong { min-width: 120px; font-size: 15px; }
+                .bank-details p { font-size: 15px; }
             }
         </style>
     </head>
 
     <body>
-        <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="top-bar-left">
-                            <div class="text">
-                                <i class="fa fa-phone-alt"></i>
-                                <p>083 892 2165</p>
-                            </div>
-                            <div class="text">
-                                <i class="fa fa-envelope"></i>
-                                <p>info@hopebeyondborders.org</p>
-                            </div>
+                            <div class="text"><i class="fa fa-phone-alt"></i><p>083 892 2165</p></div>
+                            <div class="text"><i class="fa fa-envelope"></i><p>info@hopebeyondborders.org</p></div>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -268,16 +74,13 @@
                 </div>
             </div>
         </div>
-        <!-- Top Bar End -->
 
-        <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
                 <a href="index.html" class="navbar-brand">Hope Beyond Borders</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
                         <a href="index.html" class="nav-item nav-link">Home</a>
@@ -297,27 +100,16 @@
                 </div>
             </div>
         </div>
-        <!-- Nav Bar End -->
-        
-        
-        <!-- Page Header Start -->
+
         <div class="page-header">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <h2>Donate Now</h2>
-                    </div>
-                    <div class="col-12">
-                        <a href="index.html">Home</a>
-                        <a href="donate.html">Donate</a>
-                    </div>
+                    <div class="col-12"><h2>Donate Now</h2></div>
+                    <div class="col-12"><a href="index.html">Home</a><a href="donate.html">Donate</a></div>
                 </div>
             </div>
         </div>
-        <!-- Page Header End -->
-        
-        
-        <!-- Donate Start -->
+
         <div class="container">
             <div class="donate" data-parallax="scroll" data-image-src="img/donate.jpg">
                 <div class="row align-items-center">
@@ -328,9 +120,7 @@
                                 <h2>Your Donation Changes Lives in Southern Africa</h2>
                             </div>
                             <div class="donate-text">
-                                <p>
-                                    <strong>Hope Beyond Borders Foundation</strong> is a registered nonprofit organization working across Southern Africa. Your donation helps us provide education, healthcare, nutrition, and technology access to rural communities.
-                                </p>
+                                <p><strong>Hope Beyond Borders Foundation</strong> is a registered nonprofit organization working across Southern Africa. Your donation helps us provide education, healthcare, nutrition, and technology access to rural communities.</p>
                                 <div class="bank-details">
                                     <h4>💳 Bank Transfer Details</h4>
                                     <p><strong>Bank:</strong> FNB</p>
@@ -340,7 +130,7 @@
                                     <p><strong>Reference:</strong> Your Name + Donation</p>
                                 </div>
                                 <div class="query-contact">
-                                    <i class="fa fa-phone-alt"></i> 
+                                    <i class="fa fa-phone-alt"></i>
                                     For payment queries, contact: <strong>Teacher Joan</strong> - 083 892 2165
                                 </div>
                             </div>
@@ -359,37 +149,22 @@
                                     <input type="text" class="form-control" id="phone" placeholder="Phone Number" required />
                                 </div>
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-custom active">
-                                        <input type="radio" name="amount" value="100" checked> R100
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="amount" value="250"> R250
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="amount" value="500"> R500
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="amount" value="1000"> R1000
-                                    </label>
+                                    <label class="btn btn-custom active"><input type="radio" name="amount" value="100" checked> R100</label>
+                                    <label class="btn btn-custom"><input type="radio" name="amount" value="250"> R250</label>
+                                    <label class="btn btn-custom"><input type="radio" name="amount" value="500"> R500</label>
+                                    <label class="btn btn-custom"><input type="radio" name="amount" value="1000"> R1000</label>
                                 </div>
                                 <div>
-                                    <button class="btn btn-custom" type="submit" id="donate-btn">
-                                        ❤️ Donate Now
-                                    </button>
+                                    <button class="btn btn-custom" type="submit" id="donate-btn">❤️ Donate Now</button>
                                 </div>
-                                <p class="secure-badge">
-                                    <i class="fa fa-lock"></i> Secure payments via Paystack
-                                </p>
+                                <p class="secure-badge"><i class="fa fa-lock"></i> Secure payments via Paystack</p>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Donate End -->
 
-
-        <!-- Footer Start -->
         <div class="footer">
             <div class="container">
                 <div class="row">
@@ -444,26 +219,18 @@
             </div>
             <div class="container copyright">
                 <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; <a href="#">Hope Beyond Borders Foundation</a>, All Right Reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Restoring Hope. Empowering Communities. Transforming Futures.</p>
-                    </div>
+                    <div class="col-md-6"><p>&copy; <a href="#">Hope Beyond Borders Foundation</a>, All Right Reserved.</p></div>
+                    <div class="col-md-6"><p>Restoring Hope. Empowering Communities. Transforming Futures.</p></div>
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
 
-        <!-- Back to top button -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-        
-        <!-- Pre Loader -->
+
         <div id="loader" class="show">
             <div class="loader"></div>
         </div>
 
-        <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
         <script src="lib/easing/easing.min.js"></script>
@@ -471,37 +238,50 @@
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/parallax/parallax.min.js"></script>
-        
-        <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
         <script src="mail/contact.js"></script>
-
-        <!-- Template Javascript -->
         <script src="js/main.js"></script>
 
-        <!-- Paystack Donation Handler -->
         <script>
+            const BACKEND_URL = "https://hope-beyond-borders-backend.onrender.com";
+
+            async function warmUpBackend() {
+                try {
+                    await fetch(BACKEND_URL + "/", { method: "GET" });
+                } catch (err) {
+                    console.log("Backend still warming up...");
+                }
+            }
+
+            warmUpBackend();
+
+            document.getElementById("full-name").addEventListener("focus", warmUpBackend, { once: true });
+            document.getElementById("email").addEventListener("focus", warmUpBackend, { once: true });
+            document.getElementById("phone").addEventListener("focus", warmUpBackend, { once: true });
+
             document.getElementById('donation-form').addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
+
                 let amountInput = document.querySelector('input[name="amount"]:checked');
                 let amountValue = amountInput ? parseInt(amountInput.value) : 100;
-                
+
                 let name = document.getElementById('full-name').value.trim();
                 let email = document.getElementById('email').value.trim();
                 let phone = document.getElementById('phone').value.trim();
-                
+
                 if (!name || !email || !phone) {
                     alert('Please fill in all fields.');
                     return;
                 }
-                
+
                 const btn = document.getElementById('donate-btn');
-                btn.innerHTML = 'Processing...';
+                btn.innerHTML = 'Processing... (up to 30s)';
                 btn.disabled = true;
-                
+
                 try {
-                    const response = await fetch('http://localhost:3000/initialize-payment', {
+                    await warmUpBackend();
+
+                    const response = await fetch(BACKEND_URL + '/initialize-payment', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -513,18 +293,21 @@
                             phone: phone
                         })
                     });
-                    
+
                     const data = await response.json();
-                    
+
                     if (data.error) {
                         throw new Error(data.error);
                     }
-                    
-                    // Redirect to Paystack Checkout
+
                     window.location.href = data.authorization_url;
-                    
+
                 } catch (error) {
-                    alert('Error: ' + error.message + '\n\nPlease try again or use bank transfer.');
+                    let msg = error.message;
+                    if (msg.includes('Failed to fetch') || msg.includes('NetworkError') || msg.includes('Load failed')) {
+                        msg = 'The payment server is waking up. Please wait 30 seconds and try again, or use the bank transfer details on the left.';
+                    }
+                    alert('Error: ' + msg + '\n\nPlease try again or use bank transfer.');
                     btn.innerHTML = 'Donate Now';
                     btn.disabled = false;
                 }
