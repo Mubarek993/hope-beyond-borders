@@ -1,11 +1,27 @@
 /*******************************/
 /********* General CSS *********/
 /*******************************/
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 body {
     color: #777777;
     font-weight: 500;
     background: #ffffff;
     font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 h1,
@@ -33,7 +49,7 @@ a:focus {
 .btn.btn-custom {
     padding: 12px 20px;
     text-align: center; 
-   font-size: 16px;
+    font-size: 16px;
     font-weight: 500;
     color: #777777;
     border-radius: 0;
@@ -54,8 +70,12 @@ a:focus {
     box-shadow: none;
 }
 
+/* FIX: Center container on large screens */
 .container-fluid {
     max-width: 1366px;
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
@@ -64,6 +84,30 @@ a:focus {
     margin-left: 0;
 }
 
+/* Fix text color inside bright yellow sections */
+.donate-form,
+.volunteer-form {
+    color: #20212B;
+}
+.donate-form .btn-custom,
+.volunteer-form .btn-custom {
+    color: #20212B !important;
+}
+
+/* Force white text over dark background for Donate/Volunteer */
+.donate-content .section-header h2,
+.donate-text p,
+.volunteer-content .section-header h2,
+.volunteer-text p,
+.volunteer-text ul li {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+.donate-content .section-header p,
+.volunteer-content .section-header p {
+    color: #FDBE33 !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
 
 /**********************************/
 /****** Loader & Back to Top ******/
@@ -143,7 +187,6 @@ a:focus {
     color: #FDBE33;
 }
 
-
 /**********************************/
 /********** Top Bar CSS ***********/
 /**********************************/
@@ -161,6 +204,7 @@ a:focus {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .top-bar .top-bar-right {
@@ -230,7 +274,6 @@ a:focus {
     }
 }
 
-
 /**********************************/
 /*********** Nav Bar CSS **********/
 /**********************************/
@@ -238,6 +281,7 @@ a:focus {
     position: relative;
     transition: .5s;
     z-index: 999;
+    padding: 15px;
 }
 
 .navbar.nav-sticky {
@@ -251,10 +295,10 @@ a:focus {
 .navbar .navbar-brand {
     margin: 0;
     color: #ffffff;
-    font-size: 45px;
-    line-height: 0px;
+    font-size: 32px;
+    line-height: 1.1;
     font-weight: 700;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
@@ -310,6 +354,12 @@ a:focus {
         font-size: 16px;
         letter-spacing: 1px;
     }
+    
+    /* FIX: Center navbar content on large screens */
+    .navbar .container-fluid {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 991.98px) {   
@@ -318,8 +368,13 @@ a:focus {
         background: #20212B !important;
     }
     
+    .navbar .navbar-brand {
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+    
     .navbar a.nav-link {
-        padding: 5px;
+        padding: 8px;
     }
     
     .navbar .dropdown-menu {
@@ -327,6 +382,12 @@ a:focus {
     }
 }
 
+@media (max-width: 575.98px) {
+    .navbar .navbar-brand {
+        font-size: 18px;
+        letter-spacing: 0.5px;
+    }
+}
 
 /*******************************/
 /********** Hero CSS ***********/
@@ -341,12 +402,13 @@ a:focus {
 
 .carousel .container-fluid {
     padding: 0;
+    max-width: 100%;
 }
 
 .carousel .carousel-item {
     position: relative;
     width: 100%;
-    min-height: 300px;
+    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -354,10 +416,11 @@ a:focus {
 }
 
 .carousel .carousel-img {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    min-height: 300px;
     text-align: right;
     overflow: hidden;
 }
@@ -380,8 +443,10 @@ a:focus {
 }
 
 .carousel .carousel-text {
-    position: absolute;
+    position: relative;
     max-width: 700px;
+    width: 100%;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -404,16 +469,20 @@ a:focus {
     margin-bottom: 25px;
 }
 
+.carousel .carousel-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
 .carousel .carousel-btn .btn.btn-custom {
     color: #ffffff;
+    margin: 0;
 }
 
 .carousel .carousel-btn .btn.btn-custom:hover {
     color: #20212B;
-}
-
-.carousel .carousel-btn .btn:first-child {
-    margin-right: 15px;
 }
 
 .carousel .owl-nav {
@@ -481,14 +550,15 @@ a:focus {
 }
 
 @media (max-width: 991.98px) {
+    .carousel .carousel-item {
+        min-height: 500px;
+    }
     .carousel .carousel-text h1 {
         font-size: 35px;
     }
-    
     .carousel .carousel-text p {
         font-size: 16px;
     }
-    
     .carousel .carousel-text .btn {
         padding: 12px 30px;
         font-size: 15px;
@@ -497,10 +567,12 @@ a:focus {
 }
 
 @media (max-width: 767.98px) {
+    .carousel .carousel-item {
+        min-height: 420px;
+    }
     .carousel .carousel-text h1 {
         font-size: 30px;
     }
-    
     .carousel .carousel-text .btn {
         padding: 10px 25px;
         font-size: 15px;
@@ -509,17 +581,22 @@ a:focus {
 }
 
 @media (max-width: 575.98px) {
+    .carousel .carousel-item {
+        min-height: 480px;
+        padding: 80px 0 40px 0;
+    }
     .carousel .carousel-text h1 {
         font-size: 25px;
     }
-    
+    .carousel .carousel-text p {
+        font-size: 15px;
+    }
     .carousel .carousel-text .btn {
         padding: 8px 20px;
         font-size: 14px;
         letter-spacing: 0;
     }
 }
-
 
 /*******************************/
 /******* Page Header CSS *******/
@@ -583,32 +660,33 @@ a:focus {
 
 @media (max-width: 991.98px) {
     .page-header {
-        padding: 60px 0;
+        padding: 120px 0 60px 0;
     }
-    
     .page-header h2 {
-        font-size: 45px;
+        font-size: 40px;
     }
-    
-    .page-header a {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .page-header {
-        padding: 45px 0;
-    }
-    
-    .page-header h2 {
-        font-size: 35px;
-    }
-    
     .page-header a {
         font-size: 18px;
     }
 }
 
+@media (max-width: 767.98px) {
+    .page-header {
+        padding: 100px 0 45px 0;
+    }
+    .page-header h2 {
+        font-size: 32px;
+    }
+    .page-header a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .page-header h2 {
+        font-size: 26px;
+    }
+}
 
 /*******************************/
 /******* Section Header ********/
@@ -618,6 +696,7 @@ a:focus {
     width: 100%;
     max-width: 700px;
     margin: 0 auto 45px auto;
+    padding: 0 15px;
 }
 
 .section-header p {
@@ -637,22 +716,24 @@ a:focus {
 
 @media (max-width: 991.98px) {
     .section-header h2 {
-        font-size: 45px;
+        font-size: 38px;
     }
 }
 
 @media (max-width: 767.98px) {
     .section-header h2 {
-        font-size: 40px;
+        font-size: 30px;
+    }
+    .section-header p {
+        font-size: 18px;
     }
 }
 
 @media (max-width: 575.98px) {
     .section-header h2 {
-        font-size: 35px;
+        font-size: 26px;
     }
 }
-
 
 /*******************************/
 /********** About CSS **********/
@@ -663,14 +744,23 @@ a:focus {
     padding: 45px 0;
 }
 
+.about .row {
+    align-items: center;
+}
+
 .about .section-header {
     margin-bottom: 30px;
     margin-left: 0;
 }
 
+/* FIX: Better about image sizing */
 .about .about-img {
     width: 100%;
-    height: 100vh;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
 }
 
 .about .about-tab {
@@ -706,8 +796,16 @@ a:focus {
     .about .section-header {
         margin-top: 30px;
     }
+    .about .about-img {
+        height: 350px;
+    }
 }
 
+@media (max-width: 767.98px) {
+    .about .about-img {
+        height: 280px;
+    }
+}
 
 /*******************************/
 /********* Service CSS *********/
@@ -722,22 +820,25 @@ a:focus {
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-start;
     margin-bottom: 45px;
     transition: .3s;
+    min-height: 140px;
 }
 
 .service .service-icon {
     position: relative;
     width: 60px;
+    flex-shrink: 0;
 }
 
 .service .service-icon i {
     position: relative;
     display: block;
     color: #FDBE33;
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 55px;
+    line-height: 55px;
     margin-top: 5px;
 }
 
@@ -745,6 +846,8 @@ a:focus {
     position: relative;
     margin-left: 20px;
     padding-left: 20px;
+    flex: 1;
+    min-width: 0;
 }
 
 .service .service-text::before {
@@ -762,22 +865,56 @@ a:focus {
     content: "";
     width: 3px;
     height: 40px;
-    top: calc(50% - 20px);
+    top: 20px;
     left: -1px;
     background: #FDBE33;
 }
 
 .service .service-text h3 {
     margin-bottom: 10px;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
 }
 
 .service .service-text p {
     margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
+@media (max-width: 991.98px) {
+    .service .service-text h3 {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .service .service-item {
+        min-height: auto;
+        margin-bottom: 35px;
+    }
+    .service .service-text h3 {
+        font-size: 18px;
+    }
+    .service .service-text p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .service .service-icon {
+        width: 45px;
+    }
+    .service .service-icon i {
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .service .service-text h3 {
+        font-size: 17px;
+    }
+}
 
 /*******************************/
 /********* Donate CSS **********/
@@ -786,7 +923,10 @@ a:focus {
     position: relative;
     width: 100%;
     margin: 45px 0;
-    background: rgba(0, 0, 0, .5);
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(../img/donate.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .donate .donate-content {
@@ -815,7 +955,7 @@ a:focus {
 }
 
 .donate .donate-form {
-    padding: 90px 30px;
+    padding: 45px 30px;
     background: #FDBE33;
 }
 
@@ -825,46 +965,53 @@ a:focus {
 
 .donate .donate-form .form-control {
     height: 60px;
-    color: #ffffff;
+    color: #20212B;
     padding: 0 15px;
     border-radius: 0;
-    border: 1px solid #ffffff;
-    background: transparent;
+    border: 1px solid #20212B;
+    background: #ffffff;
 }
 
 .donate .donate-form .form-control::placeholder {
-    color: #ffffff;
+    color: #666;
     opacity: 1;
-}
-
-.donate .donate-form .form-control:-ms-input-placeholder,
-.donate .donate-form .form-control::-ms-input-placeholder {
-    color: #ffffff;
 }
 
 .donate .donate-form .btn-group {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 15px;
+    gap: 5px;
 }
 
 .donate .donate-form .btn.btn-custom {
     padding: 15px 0;
     width: 100%;
     height: 60px;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    box-shadow: inset 0 0 0 0 #ffffff;
+    color: #20212B;
+    border: 2px solid #20212B;
+    box-shadow: inset 0 0 0 0 #20212B;
+    background: #ffffff;
+    font-weight: 700;
 }
 
 .donate .donate-form .btn.btn-custom:hover,
 .donate .donate-form .btn.btn-custom.active {
     color: #FDBE33;
-    border: 1px solid #ffffff;
-    box-shadow: inset 0 0 0 30px #ffffff;
+    border: 2px solid #20212B;
+    box-shadow: inset 0 0 0 30px #20212B;
+    background: #20212B;
 }
 
-
+@media (max-width: 767.98px) {
+    .container .donate .donate-content {
+        padding: 30px 20px 15px 20px;
+    }
+    .donate .donate-form {
+        padding: 30px 20px;
+    }
+}
 
 /*******************************/
 /********** Causes CSS *********/
@@ -899,7 +1046,6 @@ a:focus {
 .causes .causes-item:hover img {
     transform: scale(1.1);
 }
-
 
 .causes .causes-progress {
     width: 100%;
@@ -987,8 +1133,6 @@ a:focus {
     color: #ffffff;
 }
 
-
-
 /*******************************/
 /********** Facts CSS **********/
 /*******************************/
@@ -1052,7 +1196,6 @@ a:focus {
     font-weight: 600;
     margin: 0;
 }
-
 
 /*******************************/
 /*********** Team CSS **********/
@@ -1134,7 +1277,6 @@ a:focus {
     height: 160px;
 }
 
-
 /*******************************/
 /******* Testimonial CSS *******/
 /*******************************/
@@ -1209,7 +1351,6 @@ a:focus {
     background: #20212B;
 }
 
-
 /*******************************/
 /******** Volunteer CSS ********/
 /*******************************/
@@ -1217,7 +1358,10 @@ a:focus {
     position: relative;
     width: 100%;
     margin: 45px 0;
-    background: rgba(0, 0, 0, .5);
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(../img/volunteer.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .volunteer .volunteer-content {
@@ -1246,7 +1390,7 @@ a:focus {
 }
 
 .volunteer .volunteer-form {
-    padding: 90px 30px;
+    padding: 45px 30px;
     background: #FDBE33;
 }
 
@@ -1256,11 +1400,11 @@ a:focus {
 
 .volunteer .volunteer-form .form-control {
     height: 60px;
-    color: #ffffff;
+    color: #20212B;
     padding: 0 15px;
     border-radius: 0;
-    border: 1px solid #ffffff;
-    background: transparent;
+    border: 1px solid #20212B;
+    background: #ffffff;
 }
 
 .volunteer .volunteer-form textarea.form-control {
@@ -1269,30 +1413,36 @@ a:focus {
 }
 
 .volunteer .volunteer-form .form-control::placeholder {
-    color: #ffffff;
+    color: #666;
     opacity: 1;
-}
-
-.volunteer .volunteer-form .form-control:-ms-input-placeholder,
-.volunteer .volunteer-form .form-control::-ms-input-placeholder {
-    color: #ffffff;
 }
 
 .volunteer .volunteer-form .btn.btn-custom {
     padding: 15px 0;
     width: 100%;
     height: 60px;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    box-shadow: inset 0 0 0 0 #ffffff;
+    color: #20212B;
+    border: 2px solid #20212B;
+    box-shadow: inset 0 0 0 0 #20212B;
+    background: #ffffff;
+    font-weight: 700;
 }
 
 .volunteer .volunteer-form .btn.btn-custom:hover {
     color: #FDBE33;
-    border: 1px solid #ffffff;
-    box-shadow: inset 0 0 0 30px #ffffff;
+    border: 2px solid #20212B;
+    box-shadow: inset 0 0 0 30px #20212B;
+    background: #20212B;
 }
 
+@media (max-width: 767.98px) {
+    .container .volunteer .volunteer-content {
+        padding: 30px 20px 15px 20px;
+    }
+    .volunteer .volunteer-form {
+        padding: 30px 20px;
+    }
+}
 
 /*******************************/
 /********** Event CSS **********/
@@ -1344,6 +1494,8 @@ a:focus {
     position: relative;
     margin-left: 20px;
     padding-left: 20px;
+    flex: 1;
+    min-width: 0;
 }
 
 .event .event-text::before {
@@ -1385,36 +1537,29 @@ a:focus {
     .event .event-content {
         flex-direction: column;
     }
-    
     .event .event-meta {
         flex-direction: row;
+        flex-wrap: wrap;
     }
-    
     .event .event-meta p {
         font-size: 14px;
         padding-right: 7px;
     }
-    
     .event .event-meta p:last-child {
         border-bottom: 1px solid rgba(0, 0, 0, .15);
     }
-    
     .event .event-meta i {
         width: 18px;
     }
-    
     .event .event-text {
         margin: 0;
         padding: 0;
     }
-    
     .event .event-text::before,
     .event .event-text::after {
         display: none;
     }
 }
-
-
 
 /*******************************/
 /*********** Blog CSS **********/
@@ -1464,6 +1609,7 @@ a:focus {
     margin: 0 30px;
     padding-top: 15px;
     display: flex;
+    flex-wrap: wrap;
     border-top: 1px solid rgba(0, 0, 0, .15);
 }
 
@@ -1508,7 +1654,6 @@ a:focus {
     color: #999999;
 }
 
-
 /*******************************/
 /********* Contact CSS *********/
 /*******************************/
@@ -1542,18 +1687,22 @@ a:focus {
 @media (max-width: 991.98px) {
     .contact .contact-form {
         max-width: 600px;
+        margin-top: -180px;
     }
 }
 
 @media (max-width: 767.98px) {
     .contact .contact-form {
-        max-width: 400px;
+        max-width: 100%;
+        margin-top: -120px;
     }
 }
 
 @media (max-width: 575.98px) {
     .contact .contact-form {
-        max-width: 300px;
+        max-width: 100%;
+        margin-top: -80px;
+        padding: 20px;
     }
 }
 
@@ -1581,7 +1730,6 @@ a:focus {
     padding: 0;
     list-style-type: none;
 }
-
 
 /*******************************/
 /******* Single Post CSS *******/
@@ -1845,7 +1993,6 @@ a:focus {
     border-color: #FDBE33;
 }
 
-
 /**********************************/
 /*********** Sidebar CSS **********/
 /**********************************/
@@ -2018,7 +2165,6 @@ a:focus {
 .sidebar .image-widget img:hover {
     transform: scale(1.1);
 }
-
 
 /*******************************/
 /********* Footer CSS **********/
