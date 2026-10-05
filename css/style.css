@@ -300,11 +300,51 @@ a:focus {
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
 }
 
+/* =============================================
+   LOGO — Circular Golden Placeholder (110px)
+   ============================================= */
 .navbar .navbar-brand img {
     max-width: 100%;
-    max-height: 40px;
+    max-height: 110px;
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #ffffff;
+    padding: 6px;
+    border: 4px solid #FDBE33;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.navbar .navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+/* Shrink logo on tablet */
+@media (max-width: 991.98px) {
+    .navbar .navbar-brand img {
+        max-height: 80px;
+        width: 80px;
+        height: 80px;
+        padding: 5px;
+        border: 3px solid #FDBE33;
+    }
+}
+
+/* Shrink logo on mobile */
+@media (max-width: 575.98px) {
+    .navbar .navbar-brand img {
+        max-height: 60px;
+        width: 60px;
+        height: 60px;
+        padding: 4px;
+        border: 3px solid #FDBE33;
+    }
 }
 
 .navbar-dark .navbar-nav .nav-link,
@@ -337,12 +377,20 @@ a:focus {
         background: transparent !important;
         border-bottom: 1px solid rgba(255, 255, 255, .3);
         z-index: 9;
+        min-height: 140px;
     }
     
     .navbar.nav-sticky {
         padding: 10px 60px;
         background: #20212B !important;
         border-bottom: none;
+        min-height: auto;
+    }
+    
+    .navbar.nav-sticky .navbar-brand img {
+        max-height: 80px;
+        width: 80px;
+        height: 80px;
     }
     
     .page .navbar {
@@ -355,7 +403,6 @@ a:focus {
         letter-spacing: 1px;
     }
     
-    /* FIX: Center navbar content on large screens */
     .navbar .container-fluid {
         max-width: 1366px;
         margin: 0 auto;
@@ -753,7 +800,6 @@ a:focus {
     margin-left: 0;
 }
 
-/* FIX: Better about image sizing */
 .about .about-img {
     width: 100%;
     height: 450px;
@@ -1004,12 +1050,74 @@ a:focus {
     background: #20212B;
 }
 
+/* Bank details and query contact for donate page */
+.donate .bank-details {
+    background: rgba(0, 0, 0, 0.55);
+    padding: 25px 30px;
+    border-radius: 12px;
+    border-left: 6px solid #FDBE33;
+    margin-top: 25px;
+}
+
+.donate .bank-details h4 {
+    color: #FDBE33 !important;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.donate .bank-details p,
+.donate .bank-details p strong {
+    color: #ffffff !important;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.donate .query-contact {
+    background: rgba(253, 190, 51, 0.15);
+    color: #ffffff !important;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #FDBE33;
+    margin-top: 18px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.donate .query-contact i,
+.donate .query-contact strong {
+    color: #FDBE33 !important;
+}
+
+.donate .secure-badge {
+    color: #20212B !important;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.donate .secure-badge i {
+    color: #2b7a4b;
+    margin-right: 5px;
+}
+
 @media (max-width: 767.98px) {
     .container .donate .donate-content {
         padding: 30px 20px 15px 20px;
     }
     .donate .donate-form {
         padding: 30px 20px;
+    }
+    .donate .bank-details {
+        padding: 20px;
+    }
+    .donate .bank-details p,
+    .donate .bank-details p strong {
+        font-size: 15px;
     }
 }
 
